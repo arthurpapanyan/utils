@@ -1,0 +1,61 @@
+alias start="sudo systemctl start"
+alias restart="sudo systemctl restart"
+alias status="sudo systemctl status"
+alias stop="sudo systemctl stop"
+alias up="docker-compose up"
+alias down="docker-compose down"
+alias dockerclean="docker rmi $(docker images -aq)"
+
+#==== Utils
+
+alias rmf="rm -f"
+alias rmrf="rm -rf"
+alias cpr="cp -R"
+alias makeowner="sudo chown -R $USER:$USER"
+alias chmodx="sudo chmod -R 777"
+
+
+#======== Editing configs
+
+alias vihosts="sudo vim /etc/hosts"
+alias vialias="vim ~/.bash_aliases"
+alias resource="source ~/.bashrc"
+
+
+# Git Aliases
+
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add --all'
+alias gau='git add --update'
+alias gb='git branch'
+alias gbd='git branch --delete '
+alias gc='git commit'
+alias gcm='git commit -m'
+alias ggpush='git push origin'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias gi='git init'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+alias gp='git pull'
+alias gpr='git pull --rebase'
+alias gr='git rebase'
+alias gs='git status'
+
+#Function Aliases 
+
+mcd(){
+    mkdir -p $1
+    cd $1
+}
+
+dexec(){
+    docker exec -it $1 /bin/bash
+}
+
+drun(){
+    docker run -it $1 /bin/bash
+}
