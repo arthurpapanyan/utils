@@ -22,6 +22,8 @@ alias vialias="vim ~/.bash_aliases"
 alias resource="source ~/.bashrc"
 
 
+
+
 # Git Aliases
 
 alias ga='git add'
@@ -58,4 +60,19 @@ dexec(){
 
 drun(){
     docker run -it $1 /bin/bash
+}
+
+kubx(){
+
+ pod=$(kubectl get pods | grep $1 | awk '{print $1}' | tail -n1)
+ kubectl exec -it $pod -c $2 /bin/sh
+
+}
+
+kubexec(){
+        kubectl exec --stdin --tty $1 -- /bin/sh
+}
+
+deleteDeployments(){
+    kubectl get deployments | grep $1 | grep -v $2 | awk '{print $1}' | xargs kubectl delete deployment
 }
